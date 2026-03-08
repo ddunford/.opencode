@@ -12,7 +12,6 @@ secrets/
 auth/
 
 # Local/personal — machine-specific
-opencode.json
 lessons.md
 local/
 
