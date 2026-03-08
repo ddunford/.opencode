@@ -1,7 +1,6 @@
 ---
 description: "Docker, CI/CD, deployment, observability wiring, secrets, and production hardening. Use for compose, k8s, GitHub Actions, and release pipelines."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#e74c3c"
 tools:
   read: true

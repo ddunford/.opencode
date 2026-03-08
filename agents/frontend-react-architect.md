@@ -1,7 +1,6 @@
 ---
 description: "React architecture, component design, state management, performance, and refactors in production web apps. Use when building features, restructuring components, or fixing complex UI behaviour."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#00bcd4"
 tools:
   read: true

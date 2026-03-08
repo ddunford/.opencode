@@ -1,7 +1,6 @@
 ---
 description: "Testing strategy and implementation: unit, integration, and e2e. Use when adding features, refactoring, or fixing bugs that need regression coverage. Can run as a team teammate to execute test plans with Playwright MCP."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#f1c40f"
 tools:
   read: true

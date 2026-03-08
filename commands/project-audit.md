@@ -31,7 +31,7 @@ For the detected stack, verify these exist and are correct:
 
 | Item | Check | Fix |
 |---|---|---|
-| `AGENTS.md` (or `CLAUDE.md`) | Exists at project root with stack, modules, agents, conventions | Create using bootstrap-from-spec template |
+| `AGENTS.md` | Exists at project root with stack, modules, agents, conventions | Create using bootstrap-from-spec template |
 | `ctl.sh` | Exists, executable, has standard commands (up, down, logs, shell, migrate) | Create from ctl.sh template in AGENTS.md |
 | `docker-compose.yml` | Exists with health checks, named networks, proper targets | Add missing health checks |
 | `.env.example` | Exists with all required vars (no real secrets) | Create from .env, redacting values |
@@ -42,7 +42,7 @@ For the detected stack, verify these exist and are correct:
 Read the project's code to identify implemented features, then map each to the module system:
 
 1. Scan routes/controllers/routers for feature domains (auth, billing, notifications, etc.)
-2. For each identified feature, check if there's a matching module in `~/.claude/modules/`
+2. For each identified feature, check if there's a matching module in `~/.config/opencode/modules/`
 3. Classify each as:
    - **Aligned** — feature exists and follows the module's patterns
    - **Divergent** — feature exists but doesn't follow module patterns (custom implementation)
@@ -62,7 +62,7 @@ Produce a table:
 
 ### Step 3b — Audit custom feature specs
 
-Check the project AGENTS.md (or CLAUDE.md) for any features listed under "Custom Build" or similar. For each custom feature, verify it has a proper spec:
+Check the project AGENTS.md for any features listed under "Custom Build" or similar. For each custom feature, verify it has a proper spec:
 
 **Required for each custom feature:**
 - [ ] Database tables defined (table names, key columns)
@@ -81,7 +81,7 @@ Check the project AGENTS.md (or CLAUDE.md) for any features listed under "Custom
 
 ### Step 3c — Validate composition requirements
 
-If the project AGENTS.md (or CLAUDE.md) declares a composition (e.g., "Primary: SaaS"), read the corresponding composition file from `~/.claude/modules/compositions/` and check that all **Core Modules (Required)** are present in the project.
+If the project AGENTS.md declares a composition (e.g., "Primary: SaaS"), read the corresponding composition file from `~/.config/opencode/modules/compositions/` and check that all **Core Modules (Required)** are present in the project.
 
 Flag as Critical if a required module is missing without documented justification.
 

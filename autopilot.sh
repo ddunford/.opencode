@@ -4,7 +4,7 @@ set -euo pipefail
 ###############################################################################
 # OpenCode Autopilot — Project-agnostic automated phase execution
 #
-# Port of Claude Autopilot for the OpenCode CLI.
+# Automated phase execution for OpenCode.
 #
 # Runs from any project directory. Detects plan files, AGENTS.md/CLAUDE.md,
 # SPEC.md automatically from the current working directory.
@@ -73,7 +73,7 @@ Options:
   --dry-run              Show execution plan without running anything
   --implement-only       Skip reconcile and test-audit steps
   --max-cycles N         Max fix cycles per phase (default: 3)
-  --model PROVIDER/MODEL Override model (e.g., anthropic/claude-opus-4-6)
+  --model PROVIDER/MODEL Override model (e.g., ollama/qwen3.5-9b-32k)
   --agent AGENT          Override agent (e.g., build)
   --help                 Show this help
 
@@ -83,7 +83,7 @@ Environment:
 
 Examples:
   cd /path/to/project && autopilot
-  autopilot --phase 1 --model anthropic/claude-opus-4-6
+  autopilot --phase 1 --model ollama/qwen3.5-9b-32k
   autopilot --phase 3a --implement-only
   autopilot --dry-run
 EOF

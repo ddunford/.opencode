@@ -1,7 +1,6 @@
 ---
 description: "Monorepo tooling for pnpm workspaces plus Nx or Turborepo. Use for dependency hygiene, build caching, affected builds, module boundaries, and repo automation."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#95a5a6"
 tools:
   read: true

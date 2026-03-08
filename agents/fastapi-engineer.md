@@ -1,7 +1,6 @@
 ---
 description: "Python backend work with FastAPI. Use for async API design, Pydantic models, SQLAlchemy 2.0, Alembic migrations, Celery tasks, and authentication. Use when building or maintaining FastAPI services."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#f1c40f"
 tools:
   read: true

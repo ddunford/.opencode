@@ -1,7 +1,6 @@
 ---
 description: "Flutter mobile and multi-platform development with Dart 3. Use for widgets, state management, native integrations, offline sync, and cross-platform patterns. Use when building or maintaining Flutter apps."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#00bcd4"
 tools:
   read: true

@@ -1,7 +1,6 @@
 ---
 description: "OpenTelemetry, structured logging, correlation IDs, Sentry, and metrics for web apps. Use when wiring tracing across React and PHP, or debugging production issues."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#3498db"
 tools:
   read: true

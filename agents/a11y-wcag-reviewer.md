@@ -1,7 +1,6 @@
 ---
 description: "Practical accessibility reviews for React apps. Use for keyboard navigation, focus management, ARIA patterns, form errors, modals, menus, and tables. Includes testing guidance."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#008080"
 tools:
   read: true

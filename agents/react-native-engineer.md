@@ -1,7 +1,6 @@
 ---
 description: "React Native mobile development with Expo. Use for mobile screens, navigation, offline sync, push notifications, native modules, and cross-platform patterns. Use when building or maintaining React Native apps."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#9b59b6"
 tools:
   read: true

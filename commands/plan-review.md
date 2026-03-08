@@ -14,7 +14,7 @@ Run after `/bootstrap-from-spec` (or after manually writing plan files) to valid
 ### Step 1 — Load project context
 
 Read the following files:
-- `AGENTS.md` (or `CLAUDE.md`) — project stack, modules, custom features, agents, conventions
+- `AGENTS.md` — project stack, modules, custom features, agents, conventions
 - `SPEC.md` — original product requirements
 - All `plan/phase-*.md` files
 - All `plan/test-plan-phase-*.md` files
@@ -26,7 +26,7 @@ Record:
 - Declared composition and modules
 - List of custom features
 
-### Step 2 — Validate AGENTS.md (or CLAUDE.md) completeness
+### Step 2 — Validate AGENTS.md completeness
 
 | Check | Pass criteria |
 |-------|--------------|
@@ -46,9 +46,9 @@ Record:
 ### Step 3 — Validate composition alignment
 
 If a composition is declared (e.g., "Primary: SaaS"):
-1. Read the composition file from `~/.claude/modules/compositions/`
+1. Read the composition file from `~/.config/opencode/modules/compositions/`
 2. Check every **Core Module (Required)** is either:
-   - Present in AGENTS.md (or CLAUDE.md) modules list, OR
+   - Present in AGENTS.md modules list, OR
    - Explicitly excluded with documented rationale
 
 **Fail if:** A required composition module is missing without justification.
@@ -243,7 +243,7 @@ Once all blockers are resolved:
 ## Notes
 
 - This skill reads plans only — it does not create or modify code
-- It may update plan files and AGENTS.md (or CLAUDE.md) to fix issues (with user approval)
+- It may update plan files and AGENTS.md to fix issues (with user approval)
 - Run this after `/bootstrap-from-spec` and before any scaffold skill
 - If the project was planned manually (no bootstrap), this skill catches the same gaps
 - After fixing issues, re-run this skill to confirm READY status

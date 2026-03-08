@@ -1,7 +1,6 @@
 ---
 description: "Security reviews for web apps: auth, OWASP risks, dependency risks, SSRF, XSS, CSRF, file uploads, and secrets handling."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#2c3e50"
 tools:
   read: true

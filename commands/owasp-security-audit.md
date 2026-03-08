@@ -40,7 +40,7 @@ List the files and features in scope:
 
 ### Step 2 — Read the security guide
 
-Read `~/.claude/guides/security.md` for the full reference. Use it as the checklist baseline.
+Read `~/.config/opencode/guides/security.md` for the full reference. Use it as the checklist baseline.
 
 ### Step 3 — OWASP Top 10 audit
 
@@ -131,7 +131,7 @@ Scan for leaked credentials:
 
 4. **Check Docker/compose files** — no hardcoded passwords in Dockerfiles or docker-compose.yml
 
-5. **Check plan files and AGENTS.md (or CLAUDE.md)** — no real credentials (only `.env` variable name references)
+5. **Check plan files and AGENTS.md** — no real credentials (only `.env` variable name references)
 
 ### Step 5 — Frontend-specific checks
 
@@ -219,7 +219,7 @@ Task tool parameters:
   prompt: |
     You are the security reviewer for {project}, Phase {N}.
 
-    Your persona: security-reviewer — read ~/.claude/agents/security-reviewer.md.
+    Your persona: security-reviewer — read ~/.config/opencode/agents/security-reviewer.md.
 
     Your workflow:
     1. Wait for ALL implementation tasks to complete (check TaskList)

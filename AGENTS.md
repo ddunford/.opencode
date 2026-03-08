@@ -19,7 +19,7 @@ Two levels of lessons — global and project-specific:
 
 | File | Scope | Examples |
 |------|-------|---------|
-| `~/.claude/lessons.md` | All projects | General patterns, tool usage, workflow rules |
+| `~/.config/opencode/lessons.md` | All projects | General patterns, tool usage, workflow rules |
 | `{project-root}/lessons.md` | One project | Project URLs, domain-specific gotchas, service configs |
 
 **When the user corrects a mistake:**
@@ -42,7 +42,7 @@ Two levels of lessons — global and project-specific:
 
 ## Reference Guides
 
-Read the relevant guide from `~/.claude/guides/` before making significant decisions:
+Read the relevant guide from `~/.config/opencode/guides/` before making significant decisions:
 
 | Guide | Read when... |
 |-------|-------------|
@@ -94,11 +94,11 @@ Run in order: `/plan-review` → `/team-execute` → `/plan-reconcile` → `/tes
 
 ## Module System
 
-Reusable module specs live at `~/.claude/modules/`. Each module defines config schema, database schema, API endpoints, and platform-specific implementations. **Always check for an existing module before implementing common features from scratch.**
+Reusable module specs live at `~/.config/opencode/modules/`. Each module defines config schema, database schema, API endpoints, and platform-specific implementations. **Always check for an existing module before implementing common features from scratch.**
 
 ### Start with a Composition
 
-For new projects, read the composition file first: `~/.claude/modules/compositions/` (saas, mobile-app, api-service, ai-product, realtime-ai, content-platform, internal-tool, ecommerce, team-collaboration).
+For new projects, read the composition file first: `~/.config/opencode/modules/compositions/` (saas, mobile-app, api-service, ai-product, realtime-ai, content-platform, internal-tool, ecommerce, team-collaboration).
 
 ### Platform → Implementation
 
@@ -114,12 +114,12 @@ For new projects, read the composition file first: `~/.claude/modules/compositio
 
 ### How to Use a Module
 
-1. Read `~/.claude/modules/{module}/MODULE.md` for the contract
+1. Read `~/.config/opencode/modules/{module}/MODULE.md` for the contract
 2. Read the relevant impl file for the target platform
 3. Follow the impl's Directory Tree and Key Patterns exactly
 4. Run the impl's Verification Checklist before marking complete
 
-Full module list (94 modules): `~/.claude/modules/README.md`
+Full module list (94 modules): `~/.config/opencode/modules/README.md`
 
 ---
 
@@ -155,7 +155,7 @@ When entering plan mode, **ALWAYS** create files in `./plan/`:
 
 ## Local Platform Config
 
-Platform-specific config lives in `~/.claude/local/` (gitignored). Check at project start:
+Platform-specific config lives in `~/.config/opencode/local/` (gitignored). Check at project start:
 - AI inference services → `local/inference-services.md`
 - Reverse proxy / TLS → `local/traefik.md`
 - Workspace paths → `local/workspace.md`

@@ -20,7 +20,7 @@ The project directory will already contain files from bootstrap (AGENTS.md, SPEC
 ls -la .
 ```
 
-Record which of these already exist: `AGENTS.md` or `CLAUDE.md`, `SPEC.md`, `plan/`, `mobile/`, `android/`, `ios/`, `.gitignore`
+Record which of these already exist: `AGENTS.md`, `SPEC.md`, `plan/`, `mobile/`, `android/`, `ios/`, `.gitignore`
 
 **Rule: NEVER delete or overwrite existing files.** The scaffold adds to the directory — it does not replace bootstrap output.
 

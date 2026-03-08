@@ -8,7 +8,7 @@ agent: build
 Run after `/plan-review` has passed and the scaffold is complete. This skill reads a plan phase, creates an agent team, and delegates tasks to parallel teammates based on agent hints and parallel markers.
 
 **Prerequisites:**
-- Agent teams enabled: `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` in settings.json
+- Agent teams enabled: `agent teams enabled` in settings.json
 - Project scaffolded and booting (health endpoint responds)
 - Plan phase file exists with `TASK-X.Y` items and agent hints (`→ /agent-name`)
 
@@ -89,7 +89,7 @@ For each `TASK-X.Y` in the plan file, create a corresponding team task via TaskC
   - Sequential tasks (no `⫘`) are blocked by the preceding task
   - Parallel tasks (`⫘`) can start once their common prerequisite completes
 
-**Note:** Teammates automatically load the project's AGENTS.md (or CLAUDE.md), MCP servers, and skills from their working directory — you don't need to pass these in the task description. However, they do NOT inherit the lead's conversation history, so include any task-specific context in the description.
+**Note:** Teammates automatically load the project's AGENTS.md, MCP servers, and skills from their working directory — you don't need to pass these in the task description. However, they do NOT inherit the lead's conversation history, so include any task-specific context in the description.
 
 ### Step 5 — Spawn teammates
 
@@ -103,7 +103,7 @@ Task tool parameters:
   prompt: |
     You are the {role} teammate for {project}, Phase {N}.
 
-    Your persona: {agent-name} — read ~/.claude/agents/{agent-file}.md for conventions.
+    Your persona: {agent-name} — read ~/.config/opencode/agents/{agent-file}.md for conventions.
 
     Project plan: Read plan/phase-{N}-{name}.md for the full phase plan.
 
@@ -131,7 +131,7 @@ Task tool parameters:
   prompt: |
     You are the QA teammate for {project}, Phase {N}.
 
-    Your persona: qa-test-engineer — read ~/.claude/agents/qa-test-engineer.md for
+    Your persona: qa-test-engineer — read ~/.config/opencode/agents/qa-test-engineer.md for
     the full QA teammate protocol including Playwright MCP tool reference.
 
     Test plan: Read plan/test-plan-phase-{N}.md for all test cases.
@@ -155,11 +155,11 @@ Task tool parameters:
   prompt: |
     You are the security reviewer for {project}, Phase {N}.
 
-    Your persona: security-reviewer — read ~/.claude/agents/security-reviewer.md for
+    Your persona: security-reviewer — read ~/.config/opencode/agents/security-reviewer.md for
     the full security review protocol and team teammate workflow.
 
     Audit skill: Follow the /owasp-security-audit procedure in
-    ~/.claude/skills/owasp-security-audit/SKILL.md for the structured checklist.
+    ~/.config/opencode/skills/owasp-security-audit/SKILL.md for the structured checklist.
 
     Your workflow:
     1. Wait for ALL implementation tasks to complete (check TaskList — you need
@@ -314,4 +314,4 @@ Teams shine when a phase has **parallel backend + frontend work** with 6+ tasks 
 - Split-pane mode requires tmux or iTerm2 — not supported in VS Code terminal, Windows Terminal, or Ghostty
 - Lead is fixed — cannot transfer leadership mid-phase
 - All teammates inherit lead's permission mode at spawn — change individually after if needed
-- Higher token cost — each teammate is a full Claude instance. Worth it for parallel cross-domain work, not for routine sequential tasks.
+- Higher token cost — each teammate is a full AI instance. Worth it for parallel cross-domain work, not for routine sequential tasks.

@@ -1,7 +1,6 @@
 ---
 description: "API contracts across frontend and backend: REST design, OpenAPI, versioning, error formats, pagination, filtering, and typed client generation."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#9b59b6"
 tools:
   read: true

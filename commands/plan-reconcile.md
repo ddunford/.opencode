@@ -50,8 +50,8 @@ Read all of these:
 
 | Source | Files | Purpose |
 |--------|-------|---------|
-| **Requirements** | `SPEC.md`, `AGENTS.md` (or `CLAUDE.md`) (custom features section), `README.md` | What was originally asked for |
-| **Architecture map** | `AGENTS.md` (or `CLAUDE.md`) (`## Architecture Map` section) | How it's supposed to be wired together |
+| **Requirements** | `SPEC.md`, `AGENTS.md` (custom features section), `README.md` | What was originally asked for |
+| **Architecture map** | `AGENTS.md` (`## Architecture Map` section) | How it's supposed to be wired together |
 | **Plans** | `plan/phase-*.md` | What was planned to deliver it |
 | **Test plans** | `plan/test-plan-phase-*.md` | What was supposed to be verified |
 
@@ -60,11 +60,11 @@ Record for each phase:
 - Total tasks, completed tasks
 - Total test cases, passed/failed/untested
 
-**If the Architecture Map section is missing from AGENTS.md (or CLAUDE.md)**, you must build one before proceeding — see Step 1b. The architecture map is essential for reconciliation — without it, you can only compare against scattered endpoint/service declarations and will miss wiring gaps.
+**If the Architecture Map section is missing from AGENTS.md**, you must build one before proceeding — see Step 1b. The architecture map is essential for reconciliation — without it, you can only compare against scattered endpoint/service declarations and will miss wiring gaps.
 
 ### Step 1b — Build architecture map from existing code (if missing or stale)
 
-If AGENTS.md (or CLAUDE.md) has no `## Architecture Map` section, or this is a re-run and the map may be outdated, build a fresh one by exploring the actual codebase. Do NOT skip this or defer it — the rest of the reconciliation depends on having an accurate wiring map.
+If AGENTS.md has no `## Architecture Map` section, or this is a re-run and the map may be outdated, build a fresh one by exploring the actual codebase. Do NOT skip this or defer it — the rest of the reconciliation depends on having an accurate wiring map.
 
 **Spawn ALL 5 of these Explore agents (in parallel where possible).** Each agent must explore the codebase independently — do not combine them or substitute your own knowledge:
 
@@ -117,7 +117,7 @@ For each provider:
 Report as: Provider | Wraps (parent component) | Consumers (list) | Wiring Issues
 ```
 
-After collecting all results, write the `## Architecture Map` section into AGENTS.md (or CLAUDE.md) using the template from `/bootstrap-from-spec` Step 7b. Mark any issues found during map construction (unwired services, unconsumed endpoints, orphaned components) — these feed directly into Step 3's wiring check.
+After collecting all results, write the `## Architecture Map` section into AGENTS.md using the template from `/bootstrap-from-spec` Step 7b. Mark any issues found during map construction (unwired services, unconsumed endpoints, orphaned components) — these feed directly into Step 3's wiring check.
 
 **Important:** Building the map from code reveals the ACTUAL wiring, not the INTENDED wiring. Compare the map against SPEC.md and plan files to identify what's missing vs what was never planned.
 
@@ -136,7 +136,7 @@ If any section is blank or was not explored, go back and spawn the missing agent
 
 ### Step 2 — Build the requirements checklist
 
-From SPEC.md, AGENTS.md (or CLAUDE.md), and the Architecture Map, extract every concrete deliverable:
+From SPEC.md, AGENTS.md, and the Architecture Map, extract every concrete deliverable:
 
 **From the Architecture Map (highest priority — catches wiring gaps):**
 - Frontend Routes table → check each URL has a matching page component file AND router entry
@@ -145,14 +145,14 @@ From SPEC.md, AGENTS.md (or CLAUDE.md), and the Architecture Map, extract every 
 - Backend Endpoint → Frontend Consumer → check each endpoint has a route AND is called by the listed frontend consumer
 - Shared State & Context Providers → check each provider wraps the components listed as dependants
 
-**For each custom feature in AGENTS.md (or CLAUDE.md), extract:**
+**For each custom feature in AGENTS.md, extract:**
 - Database tables declared → check they exist in migrations
 - API endpoints declared → check routes exist and controllers are wired
 - Service classes declared → check they exist and contain real logic (not stubs)
 - Frontend services declared → check they exist and are imported/used in pages
 - Test checklist items → check they have corresponding test cases
 
-**For each module in AGENTS.md (or CLAUDE.md), extract:**
+**For each module in AGENTS.md, extract:**
 - Module config block → check the module is actually installed/configured
 - Expected routes/controllers → check they exist per the impl file pattern
 
@@ -253,12 +253,12 @@ Report each finding as:
 
 ### Step 3b — Architecture pattern check (spawn Explore agent)
 
-This check verifies the code follows the architecture decisions declared in AGENTS.md (or CLAUDE.md) (`## Architecture Decisions` section). Code that works but violates the declared architecture creates inconsistency that compounds across phases.
+This check verifies the code follows the architecture decisions declared in AGENTS.md (`## Architecture Decisions` section). Code that works but violates the declared architecture creates inconsistency that compounds across phases.
 
-**If AGENTS.md (or CLAUDE.md) has no `## Architecture Decisions` section**, flag this as a finding and build one from the actual code patterns (similar to building the architecture map in Step 1b). The decisions section should be written before proceeding.
+**If AGENTS.md has no `## Architecture Decisions` section**, flag this as a finding and build one from the actual code patterns (similar to building the architecture map in Step 1b). The decisions section should be written before proceeding.
 
 ```
-Read the Architecture Decisions section from AGENTS.md (or CLAUDE.md). Then explore the codebase and check:
+Read the Architecture Decisions section from AGENTS.md. Then explore the codebase and check:
 
 BACKEND PATTERNS:
 1. Service layer consistency:
@@ -322,7 +322,7 @@ Report each finding as:
 | Classification | Meaning | Action |
 |---------------|---------|--------|
 | **INCONSISTENT** | Code works but doesn't follow the declared pattern — some services use repos, others don't | Add refactor task to plan |
-| **UNDECLARED** | A pattern is used in code but never documented — works but creates confusion | Add the pattern to Architecture Decisions in AGENTS.md (or CLAUDE.md) |
+| **UNDECLARED** | A pattern is used in code but never documented — works but creates confusion | Add the pattern to Architecture Decisions in AGENTS.md |
 | **ARCH-MISSING** | A declared pattern has no implementation anywhere — e.g., "we use domain events" but no events exist | Add implementation task or remove the declaration |
 
 **Architecture findings go in a separate report section** (see Step 7) and generate refactor tasks, not implementation tasks. Mark them with lower priority than MISSING/STUB/UNWIRED findings — a working app with inconsistent patterns is better than a broken app with perfect architecture.

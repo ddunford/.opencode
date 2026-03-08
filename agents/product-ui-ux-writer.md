@@ -1,7 +1,6 @@
 ---
 description: "UX copy, UI flows, onboarding, empty states, and product spec writing for web apps. Use when defining a feature or improving usability."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#e91e63"
 tools:
   read: true

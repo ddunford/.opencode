@@ -1,7 +1,6 @@
 ---
 description: "Database schema design, indexing, migrations, and query performance for Postgres or MySQL. Use for modelling and slow query fixes."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#e67e22"
 tools:
   read: true

@@ -1,7 +1,6 @@
 ---
 description: "Node.js backend work with NestJS. Use for API design, modules/controllers/services, Prisma ORM, Bull queues, WebSockets, and testing. Use when building or maintaining NestJS services."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#e74c3c"
 tools:
   read: true

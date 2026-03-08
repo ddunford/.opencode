@@ -1,7 +1,6 @@
 ---
 description: "PHP backend work, especially Laravel. Use for API design, controllers, services/actions, validation, auth, queues, performance, and tests."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#2ecc71"
 tools:
   read: true

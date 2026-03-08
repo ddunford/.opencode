@@ -17,7 +17,7 @@ export function sessionBanner({ project, client, directory }: {
 
       const globalLessons = resolve(
         process.env.HOME || "~",
-        ".claude/lessons.md",
+        ".config/opencode/lessons.md",
       );
       const projectLessons = resolve(directory, "lessons.md");
 

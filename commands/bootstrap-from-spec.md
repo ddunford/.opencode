@@ -18,7 +18,7 @@ plan files + a project AGENTS.md so coding can start immediately.
 - Identify: product type, target users, core feature list, integrations, billing model
 
 ### Step 2 — Match a composition
-- Read `~/.claude/modules/compositions/` to see available compositions
+- Read `~/.config/opencode/modules/compositions/` to see available compositions
 - Select the best-fit composition (or combine two if the product spans categories)
 - State which composition was chosen and why in one sentence
 
@@ -27,7 +27,7 @@ Available compositions: `saas`, `ecommerce`, `api-service`, `content-platform`,
 
 ### Step 3 — Map spec features to modules
 For each major feature in the spec, identify the module that implements it.
-Read `~/.claude/modules/README.md` for the full module catalogue.
+Read `~/.config/opencode/modules/README.md` for the full module catalogue.
 
 Produce a table:
 
@@ -130,7 +130,7 @@ For each selected platform, identify:
 
 Before writing phase plans, make key architectural decisions that affect every phase. These decisions go in the project AGENTS.md under an `## Architecture Decisions` section and inform how tasks are structured.
 
-Read `~/.claude/guides/architecture.md` for the full patterns reference. Then decide and document:
+Read `~/.config/opencode/guides/architecture.md` for the full patterns reference. Then decide and document:
 
 **1. Application structure:**
 

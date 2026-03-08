@@ -16,7 +16,7 @@ Use when adding Traefik labels to a docker-compose service, setting up dev/produ
 
 ## Dev labels pattern
 
-Check `~/.claude/local/traefik.md` for this machine's network name, domains, and certresolver.
+Check `~/.config/opencode/local/traefik.md` for this machine's network name, domains, and certresolver.
 
 ```yaml
 services:
@@ -77,7 +77,7 @@ labels:
 
 - SSL mode **must be Full** (not Flexible) — Flexible causes infinite redirect loops
 - API token needs **Zone:DNS:Edit** for all domains used
-- Dev domains and certresolver: see `~/.claude/local/traefik.md`
+- Dev domains and certresolver: see `~/.config/opencode/local/traefik.md`
 - Prod domains: custom domain with certresolver `letsencrypt`
 
 ## Debugging checklist

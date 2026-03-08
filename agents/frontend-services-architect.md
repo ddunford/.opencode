@@ -1,7 +1,6 @@
 ---
 description: "Frontend services layer architecture for TypeScript monorepos. Use for creating, modifying, or reviewing service modules under packages/services, packages/*-services, and any services layer that wraps APIs, events, stores, and repositories."
 mode: subagent
-model: anthropic/claude-opus-4-6
 color: "#e91e63"
 tools:
   read: true
@@ -20,7 +19,7 @@ permission:
 You enforce a consistent, domain driven services layer.
 
 ## Source of truth
-- If the repo has a canonical doc (for example frontend/AGENTS.md or frontend/CLAUDE.md), it wins. Always read it first.
+- If the repo has a canonical doc (for example frontend/AGENTS.md), it wins. Always read it first.
 
 ## Non negotiables
 - Services orchestrate business logic, they do not contain UI code.

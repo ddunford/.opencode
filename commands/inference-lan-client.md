@@ -9,13 +9,13 @@ Use when integrating local AI inference (LLM, vision, embeddings) into a Laravel
 
 ## Services available
 
-Check `~/.claude/local/inference-services.md` for this machine's actual endpoints, models, and ports.
+Check `~/.config/opencode/local/inference-services.md` for this machine's actual endpoints, models, and ports.
 
 All services expose OpenAI-compatible `/v1/` endpoints. No OpenAI SDK required — use Laravel HTTP facade.
 
 ## Environment variables
 
-Read actual values from `~/.claude/local/inference-services.md` and populate the project's `.env`:
+Read actual values from `~/.config/opencode/local/inference-services.md` and populate the project's `.env`:
 
 ```bash
 # .env

@@ -22,3 +22,9 @@ local/
 sessions/
 cache/
 db/
+
+# Shared content (large)
+modules/
+guides/
+local/
+lessons.md
