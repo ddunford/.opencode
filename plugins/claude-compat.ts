@@ -1,51 +1,40 @@
 /**
- * Claude Model Compatibility Plugin
+ * Tool Name Compatibility Plugin
  *
- * Injects tool name corrections into the system prompt when using Claude models.
- * Claude models are trained with their own tool names (Read, Write, Edit, Bash, etc.)
- * which don't match OpenCode's built-in tools (read, write, edit, bash, etc.).
- * This plugin adds a system prompt section that redirects the model to use the
- * correct OpenCode tool names.
+ * Many models (Claude, Qwen, Llama, etc.) are trained on data containing
+ * tool names like read_file, Read, Write, etc. that don't match OpenCode's
+ * built-in tools (read, write, edit, bash, etc.).
+ *
+ * This plugin injects tool name guidance into the system prompt for ALL
+ * models to ensure they use the correct OpenCode tool names.
  */
 
 import type { Plugin } from "@opencode-ai/plugin"
 
 const TOOL_NAME_GUIDANCE = `
-## CRITICAL: Tool Names
+## CRITICAL: Correct Tool Names
 
-You are running inside OpenCode. You MUST use the exact tool names listed below.
-Do NOT use Claude Code tool names — they will fail silently.
+You MUST use ONLY these exact tool names. Any other tool name will fail.
 
-| Action | Use this tool | DO NOT use |
-|--------|--------------|------------|
-| Read a file | read | Read, read_file, ReadFile, cat |
-| Write/create a file | write | Write, WriteFile, write_file |
-| Edit/replace in a file | edit | Edit, str_replace_editor |
-| Run a shell command | bash | Bash, execute, terminal, shell |
-| Search file contents | grep | Grep, search, ripgrep, rg |
-| Find files by pattern | glob | Glob, find, list_files |
-| List a directory | list | ls, list_dir, ListDir |
-| Fetch a URL | webfetch | WebFetch, fetch, curl, web_search |
-| Apply a patch | patch | Patch |
+To read a file: use "read" (NOT read_file, Read, ReadFile, cat)
+To write/create a file: use "write" (NOT Write, WriteFile, write_file)
+To edit a file: use "edit" (NOT Edit, str_replace_editor)
+To run a shell command: use "bash" (NOT Bash, execute, terminal, shell)
+To search file contents: use "grep" (NOT Grep, search, ripgrep)
+To find files by pattern: use "glob" (NOT Glob, find, list_files)
+To list a directory: use "list" (NOT ls, list_dir)
+To fetch a URL: use "webfetch" (NOT WebFetch, fetch, curl)
+To apply a patch: use "patch" (NOT Patch)
 
-IMPORTANT:
-- Always call the actual tool. Never just describe what you would do.
-- If you need to create a file, call the write tool. If you need to edit, call the edit tool.
-- Do not hallucinate tool calls or pretend you called a tool. Actually invoke it.
+NEVER use read_file — it does not exist. The tool is called "read".
+NEVER describe what you would do — actually call the tool.
 `.trim()
 
-export const claudeCompat: Plugin = async ({ client }) => {
+export const toolCompat: Plugin = async () => {
   return {
-    "experimental.chat.system.transform": async (input, output) => {
-      // Only inject for Claude/Anthropic models
-      const modelId = input.model?.id ?? ""
-      const provider = input.model?.provider ?? ""
-      if (
-        provider.includes("anthropic") ||
-        modelId.includes("claude")
-      ) {
-        output.system.push(TOOL_NAME_GUIDANCE)
-      }
+    "experimental.chat.system.transform": async (_input, output) => {
+      // Apply to ALL models — many are trained on Claude/Copilot transcripts
+      output.system.push(TOOL_NAME_GUIDANCE)
     },
   }
 }
