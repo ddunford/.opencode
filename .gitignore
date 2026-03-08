@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+bun.lock
+
+# Secrets & credentials — never commit
+.env
+.env.*
+*.pem
+*.key
+credentials*
+secrets/
+auth/
+
+# Local/personal — machine-specific
+opencode.json
+lessons.md
+local/
+
+# Runtime & cache
+*.log
+*.session
+sessions/
+cache/
+db/
