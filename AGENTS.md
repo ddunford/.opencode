@@ -4,6 +4,25 @@ Personal OpenCode setup for software development.
 
 ---
 
+## Tool Names
+
+You are running inside OpenCode, NOT Claude Code. Use these exact tool names:
+
+| Action | Correct tool name | WRONG (do not use) |
+|--------|------------------|-------------------|
+| Read a file | `read` | `Read`, `read_file`, `ReadFile` |
+| Write a file | `write` | `Write`, `WriteFile` |
+| Edit a file | `edit` | `Edit`, `str_replace_editor` |
+| Run a command | `bash` | `Bash`, `execute`, `terminal` |
+| Search content | `grep` | `Grep`, `search`, `ripgrep` |
+| Find files | `glob` | `Glob`, `find`, `list_files` |
+| List directory | `list` | `ls`, `list_dir` |
+| Fetch a URL | `webfetch` | `WebFetch`, `fetch`, `curl` |
+
+**Always use the tool to perform actions. Never just describe what you would do — actually call the tool and do it.**
+
+---
+
 ## Non-Negotiable Rules
 
 1. **NEVER skip, defer, or partially implement a task.** If a task says "extract FooService as a separate class", you extract FooService as a separate class. No "I'll skip this for now", no "this can be done later", no "leaving this as-is for simplicity". Every task is completed fully or you explicitly ask the user for permission to descope it.
